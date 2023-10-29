@@ -12,16 +12,18 @@
       class=" fixed top-0 w-full"
     >
     <div class="py-6 px-6 flex justify-between items-center bg-[#1f2937] opacity-100 drop-shadow-lg mb-20">
-      <a href="/" class="text-xl text-white font-semibold">Order Manager</a>
-      <div>
-      <form method="get" action="{% url 'core:item_search' %}" class="flex items-center">
+      <div class="w-1/2 flex flex-rows justify-between p-2">
+      <a href="/" class="text-xl text-white font-semibold flex-start">Order Manager</a>
+      <div class="w-1/2 mr-12">
+      <form method="get" action="{% url 'core:item_search' %}" class="flex items-center w-full ">
         <input
             type="text"
             name="q"
             placeholder="Search for items"
-            class="px-2 py-1 border border-gray-300 rounded-md w-96 "
+            class="px-2 py-1 border border-gray-300 rounded-md w-full rounded-xl "
         />
     </form>
+  </div>
   </div>
       <div class="space-x-6">
       <div class="flex flex-rows">
@@ -30,12 +32,12 @@
           class="px-6 py-3 text-lg font-semibold text-white rounded-xl hover:bg-gray-900"
           >Home</a
         >
+        {% if request.user.is_authenticated %}
         <a
           href="#"
           class="px-6 py-3 text-lg font-semibold text-white rounded-xl hover:bg-gray-900"
           >My Items</a
         >
-        {% if request.user.is_authenticated %}
         <form action="{%url 'core:logout'%}" method="post">
         {% csrf_token %}
         <button type='submit' class="px-6 py-3 text-lg font-semibold text-white rounded-xl hover:bg-gray-900"> Log out </button>
@@ -63,7 +65,9 @@
       <div class="w-2/3 pr-10">
           <h3 class="mb-5 font-semibold text-gray-400">About</h3>
 
-          <p class="text-lg text-gray-500"> Do labore do elit velit esse minim ea dolore magna. Sunt est reprehenderit cillum voluptate occaecat laboris labore esse. Laboris ad voluptate nulla est Lorem magna esse. Cupidatat in eu ut eu dolor est do quis magna ullamco tempor duis sit cupidatat. Irure sit sunt veniam cupidatat id non laborum laboris sint dolore eu..</p>
+          <p class="text-lg text-gray-500">
+            Our eCommerce website is more than just an online store; it's a reflection of our passion for delivering quality products and exceptional service to our valued customers. At Order Manager, we're dedicated to creating a seamless shopping experience that goes beyond transactions. Founded on the principles of trust, innovation, and customer-centricity, our journey began with a vision to provide a diverse range of products that cater to your needs and desires.
+          </p>
       </div>
 
       {% comment %} <div class="w-1/3">
