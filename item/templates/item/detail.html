@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% block title %}{{item.name}}{% endblock %}
+{% block content %}
+
+<div class="grid grid-cols-5 gap-2  items-center px-28 mt-20 ">
+    <div class="col-span-3 p-3">
+        <img src={{item.image.url}} class="rounded-xl">
+    </div>
+    <div class="col-span-2 p-6 bg-gray-700 rounded-xl">
+        <h1 class="mb-6 text-3xl text-white">{{ item.name }}</h1>
+        <p class="text-gray-200"><strong>Price: </strong>{{ item.price }}</p>
+        <p class="text-gray-200"><strong>Seller: </strong>{{ item.created_by.username }}</p>
+        {% if item.description %}
+            <p class="text-gray-300">
+                <strong class="text-gray-200">Description:</strong><br>
+                {{ item.description }}
+            </p>
+        {% endif %}
+        {% if item.priority_tag %}
+        <p class="text-gray-200 "> <strong> Priority: </strong> {{ item.priority_tag.name }}</p>
+    {% endif %}
+    </div>
+</div>
+{% if related_items %}
+<div class="mt-6 px-6 py-12 bg-[#111827] rounded-xl ">
+    <h2 class="mb-12 text-2xl text-center text-white ">Related items</h2>
+<div class="grid grid-cols-3 gap-3">
+    {% for item in related_items %}
+        <div>
+            <a href = "{% url 'item:detail' item.id %}">
+                <div>
+                    <img src="{{ item.image.url }}" class="rounded-t-xl h-60 w-72">
+                </div>
+
+                <div class="p-6 bg-slate-600 rounded-b-xl w-72">
+                    <h2 class="text-2xl text-white">{{ item.name }}</h2>
+                    <p class="text-gray-200">Price: {{ item.price }}</p>                
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endif %}
+{% endblock %}
