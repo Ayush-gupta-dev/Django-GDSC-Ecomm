@@ -5,11 +5,11 @@ from django.contrib.auth.models import User
 class LoginForm(AuthenticationForm):
       username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Your Username',
-        'class': 'w-full py-3 px-6 rounded-xl'
+        'class': 'w-full py-3 px-6 text-slate-700 rounded-xl'
     }))
       password = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Your Password',
-        'class': 'w-full py-3 px-6 rounded-xl'
+        'class': 'w-full py-3 px-6 rounded-xl text-slate-700'
     }))
 
 class SignupForm(UserCreationForm):
@@ -18,17 +18,17 @@ class SignupForm(UserCreationForm):
         fields=('username','email','password1','password2')
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Your Username',
-        'class': 'w-full py-3 px-6 rounded-xl'
+        'class': 'w-full py-3 px-6 rounded-xl text-slate-700'
     }))
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'placeholder': 'Your Email',
-        'class': 'w-full py-3 px-6 rounded-xl'
+        'class': 'w-full py-3 px-6 rounded-xl text-slate-700'
     }))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Your Password',
-        'class': 'w-full py-3 px-6 rounded-xl'
+        'class': 'w-full py-3 px-6 rounded-xl text-slate-700'
     }))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Repeat Password',
-        'class': 'w-full py-3 px-6 rounded-xl'
+        'class': 'w-full py-3 px-6 rounded-xl text-slate-700'
     }))
