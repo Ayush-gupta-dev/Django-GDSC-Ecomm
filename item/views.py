@@ -36,7 +36,7 @@ def edit(request,pk):
     if request.method == "POST":
         form=EditItemForm(request.POST,request.FILES,instance=item)
         if form.is_valid:
-            item.save()
+            form.save()
             return redirect('item:detail',pk=item.id)
     else:
         form = EditItemForm(instance=item)
