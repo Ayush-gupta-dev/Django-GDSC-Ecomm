@@ -38,6 +38,11 @@
           class="px-6 py-3 text-lg font-semibold text-white rounded-xl hover:bg-gray-900"
           >My Items</a
         >
+        <a
+          href="{%url 'item:new'%}"
+          class="px-6 py-3 text-lg font-semibold text-white rounded-xl hover:bg-gray-900"
+          >Add Item</a
+        >
         <form action="{%url 'core:logout'%}" method="post">
         {% csrf_token %}
         <button type='submit' class="px-6 py-3 text-lg font-semibold text-white rounded-xl hover:bg-gray-900"> Log out </button>
